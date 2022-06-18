@@ -20,3 +20,16 @@ toName <- function(mail) {
   identifiants <- data.frame(nom = donnee[[1]][[1]], prenom = donnee[[1]][[2]], email = mail)
   return(identifiants)
 }
+
+#'@title toMail
+#'@description fonction qui construit un mail institutionnel INPHB
+#'@param prenom : Prenoms de l'étudiant dont on veut construire le mail
+#'@param nom : Nom de l'étudiant
+#'@return : dataframe contenant le nom, le prenom et l'adresse mail
+toMail <- function(nom, prenom){
+  premier_prenom <- strsplit(prenom, split = " ")[[1]][[1]]
+  mail <- paste(premier_prenom, ".", nom, "@inphb.ci", sep = "")
+  return(data.frame(nom = nom, prenom = prenom, email = mail))
+}
+
+
